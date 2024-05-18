@@ -59,3 +59,17 @@ require('logger'):log('a:', a, 'b:', b, 'c:', c, 'd:', d, 'e:', e )
 -- Toggles the logger buffer
 require('logger'):toggle()
 ```
+
+My preferred way of using this plugin is to alias \_G.log to logger:log().
+Doing so allows you to have some nice logging syntax:
+
+```lua
+--- logger config file
+function _G.log(...)
+  require('logger'):log(...)
+end
+
+-- Some other file
+log('hello from some other file')
+
+```
