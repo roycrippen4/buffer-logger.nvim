@@ -94,6 +94,10 @@ function M:create_buf()
 end
 
 function M:toggle()
+  if self.winnr == nil or not vim.api.nvim_win_is_valid(self.winnr) then
+    self.winner = nil
+  end
+
   if not self.bufnr then
     self:create_buf()
   end
@@ -127,7 +131,7 @@ function M:setup(config)
 
   if config.show_on_start then
     vim.defer_fn(function()
-      require('logger'):show()
+      require('logger'):toggle()
     end, 200)
   end
 end
