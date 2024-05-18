@@ -125,10 +125,6 @@ end
 
 ---@param config LoggerConfig
 function M:setup(config)
-  vim.api.nvim_create_user_command('LogToggle', function()
-    require('logger'):toggle()
-  end, {})
-
   if config.show_on_start then
     vim.defer_fn(function()
       require('logger'):toggle()
