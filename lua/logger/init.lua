@@ -88,9 +88,6 @@ function M:create_buf()
   self.bufnr = vim.api.nvim_create_buf(false, true)
   vim.api.nvim_buf_set_name(self.bufnr, 'logger')
   vim.api.nvim_buf_set_lines(self.bufnr, 0, -1, false, self.lines)
-  self:log('Logger started...')
-  self:log()
-  self:log()
 end
 
 function M:toggle()
